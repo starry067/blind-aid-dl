@@ -21,7 +21,7 @@
 
 ## 👩‍💻 My Contribution (Role: Team Leader & PM)
 
-저는 본 프로젝트의 리더로서 **전체 시스템의 청사진(Blueprint)**을 설계하고, 개발 프로세스를 리딩했습니다.
+저는 본 프로젝트의 리더로서 <b>**전체 시스템의 청사진(Blueprint)**</b>을 설계하고, 개발 프로세스를 리딩했습니다.
 
 ### 1. System Architecture & Engineering
 * **요구사항 명세서(SRS) 작성:** 프로젝트의 기능(Functional) 및 비기능(Non-functional) 요구사항을 정의하여 개발 범위를 명확화했습니다.
