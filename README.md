@@ -37,7 +37,7 @@
 
 ## 👨‍💻 My Role (Team Leader & Tech Lead)
 
-팀의 리더로서 **전체 시스템 아키텍처를 설계**하고, **기술적 난이도가 높은 기능의 타당성 검토(Feasibility Check)**를 주도했습니다.
+팀의 리더로서 <b>전체 시스템 아키텍처를 설계</b>하고, <b>기술적 난이도가 높은 기능의 타당성 검토(Feasibility Check)</b>를 주도했습니다.
 
 ### 1. Project Management & Architecture
 - **요구사항 분석:** 기능(FUR), 성능(PER), 인터페이스(IFR) 요구사항 명세서 작성 주도
