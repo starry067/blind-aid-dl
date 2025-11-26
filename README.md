@@ -26,7 +26,7 @@
 | 1. 시작 및 메뉴 (Onboarding) | 2. 도움말 및 탐색 (Detection) | 3. 식품 인식 결과 (Recognition) |
 | :---: | :---: | :---: |
 | <img src="assets/result1.png" width="100%"> | <img src="assets/result2.png" width="100%"> | <img src="assets/result3.png" width="100%"> |
-> *High-Contrast UI & Voice Feedback Flow (Actual App Screenshots)*
+> *시각장애인 접근성을 고려한 고대비 UI 및 음성 안내 흐름 (실제 구동 화면)*
 
 ---
 
