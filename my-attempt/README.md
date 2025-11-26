@@ -30,3 +30,8 @@
 - **Core:** React Native (Bridge 통신)  *(※ 만약 Java로 짰다면 Android Native로 수정)*
 - **AI Model:** TensorFlow Lite (`mono+stereo_640x192`)
 - **Vision:** OpenCV (이미지 전처리)
+
+### 3️⃣ Documentation
+* 프로젝트의 **분석-설계-구현-테스트** 전 과정을 체계적으로 정리한 엔지니어링 보고서를 작성했습니다.
+* 📄 **[졸업작품 최종 보고서 확인하기 (Click)](../docs/)**
+    * *상세 문서는 상위 `docs/` 폴더 내 PDF 파일에서 확인 가능합니다.*
