@@ -14,7 +14,7 @@
 
 | System Flow (Sequence Diagram) | Use Case Diagram |
 | :---: | :---: |
-| ![Sequence Diagram](assets/sequence_diagram.png) | ![Use Case](assets/usecase_diagram.png) |
+| ![Sequence Diagram](assets/sequence_diagram_dl.png) | ![Use Case](assets/usecase_diagram.png) |
 > *설계 단계에서 작성한 시퀀스 다이어그램과 유스케이스 (Project Documentation)*
 
 ---
