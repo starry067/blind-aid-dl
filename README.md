@@ -14,7 +14,7 @@
 
 | System Flow (Sequence Diagram) | Use Case Diagram |
 | :---: | :---: |
-| ![Sequence Diagram]([보고서_72페이지_시퀀스다이어그램_캡처이미지]) | ![Use Case]([보고서_62페이지_유스케이스_캡처이미지]) |
+| ![Sequence Diagram](assets/sequence_diagram.png) | ![Use Case](assets/usecase_diagram.png) |
 > *설계 단계에서 작성한 시퀀스 다이어그램과 유스케이스 (Project Documentation)*
 
 ---
@@ -48,7 +48,7 @@
 <summary><b>📅 [Click] 개발 일정 관리표 (WBS) 보기</b></summary>
 <br>
 
-![Development Schedule]([개발일정_이미지_링크])
+![Development Schedule](assets/wbs_schedule.png)
 > *WBS(Work Breakdown Structure)를 활용한 체계적인 일정 관리 및 리스크 매니지먼트 수행*
 
 </details>
@@ -57,6 +57,7 @@
 - **목표:** 별도의 LiDAR 센서 없이 일반 카메라만으로 1m 이내 장애물을 감지하는 기능 연구
 - **시도:** **TensorFlow Hub의 `mono+stereo_640x192` 모델**을 TFLite로 변환하여 모바일 이식 시도
 - **검증:** React Native와 Native Module(Java) 간의 브릿지 통신 및 성능 테스트 수행
+
 ---
 
 ## 🛠 Technical Trouble Shooting (Retrospective)
