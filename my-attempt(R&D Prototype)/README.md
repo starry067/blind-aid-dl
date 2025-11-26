@@ -28,14 +28,14 @@
 ---
 
 ## 🧩 Key Engineering Learnings (배운 점)
-- **Edge AI 최적화의 필요성:** 단순히 모델을 가져다 쓰는 것을 넘어, 모바일 환경에 맞는 <b>**양자화(Quantization)**</b>와 경량화가 필수적임을 체감.
-- **Trade-off 분석 능력:** '정확도'와 '실시간성' 사이에서 사용자 경험(UX)을 최우선으로 하여 과감히 기능을 제외하는 <b>**기술적 의사결정**</b> 경험.
-- **Fail-Fast:** 프로토타이핑을 통해 기술적 리스크를 조기에 발견하고, 전체 프로젝트 일정에 차질이 없도록 관리하는 리스크 매니지먼트 역량 습득.
+- **Native Module Integration:** React Native와 Android Native(CameraX, TFLite) 간의 **브릿지(Bridge) 통신 및 의존성(Dependency) 문제**를 해결하며 하이브리드 앱 구조를 깊이 이해함.
+- **Edge AI 최적화:** 단순히 모델을 가져다 쓰는 것을 넘어, 모바일 환경에 맞는 **양자화(Quantization)**와 경량화가 필수적임을 체감.
+- **Trade-off 분석:** '정확도'와 '실시간성' 사이에서 사용자 경험(UX)을 최우선으로 하여 과감히 기능을 제외하는 **기술적 의사결정** 경험.
 
 ---
 
 ## 🔧 Tech Stack (Research)
-- **Core:** React Native
+- **Core:** React Native (Bridge Communication)
 - **AI Model:** TensorFlow Lite (`mono+stereo_640x192`)
 - **Vision:** OpenCV (이미지 전처리)
 
