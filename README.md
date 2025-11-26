@@ -42,13 +42,21 @@
 ### 1. Project Management & Architecture
 - **요구사항 분석:** 기능(FUR), 성능(PER), 인터페이스(IFR) 요구사항 명세서 작성 주도
 - **시스템 설계:** UML(Use Case, Sequence Diagram) 작성을 통한 개발 로직 구체화
-- **일정 관리:** WBS 기반의 개발 일정 관리 및 리스크 매니지먼트
+- **일정 관리 (WBS):** 프로젝트의 전체 라이프사이클(분석-설계-구현-테스트)을 주 단위로 관리하여 납기 준수
+
+<details>
+<summary><b>📅 [Click] 개발 일정 관리표 (WBS) 보기</b></summary>
+<br>
+
+![Development Schedule]([개발일정_이미지_링크])
+> *WBS(Work Breakdown Structure)를 활용한 체계적인 일정 관리 및 리스크 매니지먼트 수행*
+
+</details>
 
 ### 2. R&D: 거리 감지 알고리즘 연구 (my-attempt)
 - **목표:** 별도의 LiDAR 센서 없이 일반 카메라만으로 1m 이내 장애물을 감지하는 기능 연구
 - **시도:** **TensorFlow Hub의 `mono+stereo_640x192` 모델**을 TFLite로 변환하여 모바일 이식 시도
 - **검증:** React Native와 Native Module(Java) 간의 브릿지 통신 및 성능 테스트 수행
-
 ---
 
 ## 🛠 Technical Trouble Shooting (Retrospective)
