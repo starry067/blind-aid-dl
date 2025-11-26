@@ -19,6 +19,17 @@
 
 ---
 
+## 📱 UI/UX Preview
+시각장애인 사용자의 접근성을 최우선으로 고려한 **직관적인 UI와 음성 안내 플로우**입니다.
+(실제 구동 화면을 캡처한 이미지입니다.)
+
+| 1. 시작 및 메뉴 (Onboarding) | 2. 도움말 및 탐색 (Detection) | 3. 식품 인식 결과 (Recognition) |
+| :---: | :---: | :---: |
+| <img src="assets/result1.png" width="100%"> | <img src="assets/result2.png" width="100%"> | <img src="assets/result3.png" width="100%"> |
+> *High-Contrast UI & Voice Feedback Flow (Actual App Screenshots)*
+
+---
+
 ## 📌 Project Info
 
 - **프로젝트 명:** 인식 서포터 (Recognition Supporter)
