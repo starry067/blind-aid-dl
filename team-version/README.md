@@ -4,15 +4,25 @@
 
 실제 시각장애인 사용자를 대상으로 한 시나리오 테스트를 통과하여, 졸업작품으로 제출된 **배포 가능한 수준의 완성 버전**입니다.
 
-### ✨ Key Features (핵심 구현 기능)
-- **On-device AI Inference:** TensorFlow Lite 모델을 탑재하여 네트워크 의존도를 낮춘 실시간 식품 인식 구현.
-- **Accessibility (A11y):** 시각장애인 웹 접근성 지침을 준수한 TTS(Text-to-Speech) 음성 안내 시스템 구축.
-- **Cross-Platform UI:** React Native를 활용하여 Android/iOS 환경에 최적화된 전체 앱 플로우(User Flow) 구현.
+---
 
-### 👩‍💻 My Contribution (Role: Team Leader & PM)
-본 버전의 개발 과정에서 **전체 시스템의 청사진(Blueprint)**을 그리는 역할을 수행했습니다.
+## ✨ Key Features (핵심 구현 기능)
 
-- **System Architecture:** 요구사항 명세서(SRS)를 기반으로 기능(Functional) 및 비기능(Non-functional) 요구사항 정의.
-- **UX Engineering:** 시각장애인의 특성을 고려한 '음성 중심 인터페이스(VUI)' 설계 및 Figma 와이어프레임 제작.
-- **Documentation:** 프로젝트의 전 과정(분석-설계-구현-테스트)을 정리한 엔지니어링 보고서 작성.
-  - *상세 문서는 `docs/` 폴더 내 **[졸업작품 최종 보고서]**에서 확인 가능합니다.*
+이 버전은 **'실제 사용성(Usability)'**과 **'안정성(Stability)'**을 최우선으로 개발되었습니다.
+
+* **⚡️ On-device AI Inference**
+    * **TensorFlow Lite** 모델을 앱 내부에 탑재하여, 네트워크 연결이 불안정한 환경에서도 끊김 없는 실시간 식품 인식을 구현했습니다.
+* **🗣️ Accessibility (A11y)**
+    * 시각장애인 웹/앱 접근성 지침을 준수하여, 화면을 보지 않고도 조작 가능한 **TTS(Text-to-Speech) 기반 음성 안내 시스템**을 구축했습니다.
+* **📱 Cross-Platform UI**
+    * **React Native**를 활용하여 Android와 iOS 환경 모두에 최적화된 UX 플로우(User Flow)를 제공합니다.
+
+---
+
+## 👩‍💻 My Contribution (Role: Team Leader & PM)
+
+저는 본 프로젝트의 리더로서 **전체 시스템의 청사진(Blueprint)**을 설계하고, 개발 프로세스를 리딩했습니다.
+
+### 1️⃣ System Architecture & Engineering
+* **요구사항 명세서(SRS) 작성:** 프로젝트의 기능(Functional) 및 비기능(Non-functional) 요구사항을 정의하여 개발 범위를 명확화했습니다.
+* **기술 의사결정:** 실시간성과 안정성을 고려하여 Server-based가 아닌 **
