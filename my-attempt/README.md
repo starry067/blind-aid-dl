@@ -31,7 +31,9 @@
 - **AI Model:** TensorFlow Lite (`mono+stereo_640x192`)
 - **Vision:** OpenCV (이미지 전처리)
 
-### 3️⃣ Documentation
-* 프로젝트의 **분석-설계-구현-테스트** 전 과정을 체계적으로 정리한 엔지니어링 보고서를 작성했습니다.
+### 📚 Documentation (Reference)
+
+본 프로토타입의 **연구 배경(Background)** 및 **기술적 분석(Technical Analysis)** 내용은 통합 보고서에 상세히 기술되어 있습니다.
+
 * 📄 **[졸업작품 최종 보고서 확인하기 (Click)](../docs/)**
-    * *상세 문서는 상위 `docs/` 폴더 내 PDF 파일에서 확인 가능합니다.*
+    * *거리 감지 기능의 설계 의도와 실패 요인 분석 등 상세 내용은 상위 `docs/` 폴더 내 보고서를 참고해 주세요.*
