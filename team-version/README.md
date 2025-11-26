@@ -25,4 +25,13 @@
 
 ### 1️⃣ System Architecture & Engineering
 * **요구사항 명세서(SRS) 작성:** 프로젝트의 기능(Functional) 및 비기능(Non-functional) 요구사항을 정의하여 개발 범위를 명확화했습니다.
-* **기술 의사결정:** 실시간성과 안정성을 고려하여 Server-based가 아닌 **
+* **기술 의사결정:** 실시간성과 안정성을 고려하여 Server-based가 아닌 **On-device AI** 방식을 채택하고 아키텍처를 설계했습니다.
+
+### 2️⃣ UX Engineering (VUI Design)
+* **음성 중심 인터페이스(Voice User Interface) 설계:** 시각적 요소보다 청각적 피드백이 중요한 사용자의 특성을 반영하여 UI/UX를 설계했습니다.
+* **Wireframing:** 개발 전 Figma(및 PPT)를 활용하여 화면 흐름을 시각화하고 팀원들과 공유했습니다.
+
+### 3️⃣ Documentation
+* 프로젝트의 **분석-설계-구현-테스트** 전 과정을 체계적으로 정리한 엔지니어링 보고서를 작성했습니다.
+* 📄 **[졸업작품 최종 보고서 확인하기 (Click)](../docs/)**
+    * *상세 문서는 상위 `docs/` 폴더 내 PDF 파일에서 확인 가능합니다.*
