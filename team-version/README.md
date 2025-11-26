@@ -8,7 +8,7 @@
 
 ## ✨ Key Features (핵심 구현 기능)
 
-이 버전은 **'실제 사용성(Usability)'**과 **'안정성(Stability)'**을 최우선으로 개발되었습니다.
+이 버전은 <b>**'실제 사용성(Usability)'**</b>과 <b>**'안정성(Stability)'**</b>을 최우선으로 개발되었습니다.
 
 * **⚡️ On-device AI Inference**
     * **TensorFlow Lite** 모델을 앱 내부에 탑재하여, 네트워크 연결이 불안정한 환경에서도 끊김 없는 실시간 식품 인식을 구현했습니다.
