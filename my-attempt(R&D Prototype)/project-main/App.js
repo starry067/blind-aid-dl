@@ -1,9 +1,16 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { View, Text,TouchableOpacity, StyleSheet, StatusBar, TouchableWithoutFeedback,} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  StatusBar,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import { Camera } from 'expo-camera';
 import * as Speech from 'expo-speech';
 import { MaterialIcons } from '@expo/vector-icons';
-import { w3cwebsocket as W3CWebSocket } from 'websocket';
+import { style } from 'deprecated-react-native-prop-types/DeprecatedViewPropTypes';
 
 export default function App() {
   const cameraRef = useRef(null);
@@ -17,21 +24,19 @@ export default function App() {
   const captureInterval = 300;  //0.3초
   let captureTimer = null;
   let isSpeaking = false;
- 
-  const uploadEndpoint = '/uploadImage'; // 이미지 업로드 엔드포인트 설정
-  const [distanceResult, setDistanceResult] = useState('0m'); // 거리 정보 상태 변수
 
-  const SERVER_ADDRESS = `http://192.168.86.24:3000`;  
-  const wsClient = new W3CWebSocket('ws://192.168.86.24:3000'); // 실시간을 위한 웹소켓 연결
+  const SERVER_ADDRESS = `http://172.30.1.15:3000`;  
 
   // 어플 첫 실행 시 가이드 메시지
   const firstText = [
     '어플의 사용법을 알려드리겠습니다.\n다음 설명을 듣고싶으시면 화면을 터치해주세요.',
     '어플의 첫 실행 화면은 카메라 화면입니다.',
     '휴대폰을 사용자가 가려고 하는 방향으로 비추면 어플이 장애물과의 거리를 인식하여 음성으로 알려줍니다.',
-    '화면 중앙 하단에는 카메라 촬영 버튼이 있습니다.\n이 버튼은 식품을 촬영하는 버튼으로, 과자나 라면을 촬영하면 어떤 식품인지 알려줍니다.',
+    '거리 인식 시 휴대폰을 30도 가량 아래를 향하게 해주세요.',
+    '화면 좌측 하단에는 카메라 촬영 버튼이 있습니다.\n이 버튼은 식품을 촬영하는 버튼으로, 과자나 라면을 촬영하면 어떤 식품인지 알려줍니다.',
     '식품을 촬영하면 촬영한 식품을 인식하여 어떤 식품인지 텍스트와 음성으로 알려준 뒤 3초 후에 이전 화면으로 돌아갑니다.',
-    '촬영 시 휴대폰을 30도 가량 아래를 향하게 해주세요.',
+    '화면 우측 하단에는 카메라 촬영 버튼이 있습니다.\n이 버튼은 매대를 촬영하는 버튼으로, 매대를 촬영하면 어느 방향에 어떤 매대가 있는지 알려줍니다.',
+    '매대를 촬영하면 촬영한 매대를 인식하여 어떤 매대인지 텍스트와 음성으로 알려준 뒤 3초 후에 이전 화면으로 돌아갑니다.',
     '화면 우측 상단에는 도움말 버튼이 있습니다. 어플의 사용법을 듣고싶으시면 우측 상단의 버튼을 눌러주세요.',
     '어플 사용법 설명이 다 끝났습니다.\n어플의 사용법을 다시 듣고싶으시다면 우측 상단의 도움말 버튼을 눌러주세요.',
     '카메라 화면으로 돌아갑니다.'
@@ -42,9 +47,13 @@ export default function App() {
     '도움말 버튼을 누르셨습니다.\n다음 설명을 듣고싶으시면 화면을 터치해주세요.',
     '어플의 첫 실행 화면은 카메라 화면입니다.',
     '휴대폰을 사용자가 가려고 하는 방향으로 비추면 어플이 장애물과의 거리를 인식하여 음성으로 알려줍니다.',
-    '화면 중앙 하단에는 카메라 촬영 버튼이 있습니다.\n이 버튼은 식품을 촬영하는 버튼으로, 과자나 라면을 촬영하면 어떤 식품인지 알려줍니다.',
+    '거리 인식 시 휴대폰을 30도 가량 아래를 향하게 해주세요.',
+    '화면 좌측 하단에는 카메라 촬영 버튼이 있습니다.\n이 버튼은 식품을 촬영하는 버튼으로, 과자나 라면을 촬영하면 어떤 식품인지 알려줍니다.',
     '식품을 촬영하면 촬영한 식품을 인식하여 어떤 식품인지 텍스트와 음성으로 알려준 뒤 3초 후에 이전 화면으로 돌아갑니다.',
-    '촬영 시 휴대폰을 30도 가량 아래를 향하게 해주세요.',
+    '화면 좌측 하단에는 카메라 촬영 버튼이 있습니다.\n이 버튼은 식품을 촬영하는 버튼으로, 과자나 라면을 촬영하면 어떤 식품인지 알려줍니다.',
+    '식품을 촬영하면 촬영한 식품을 인식하여 어떤 식품인지 텍스트와 음성으로 알려준 뒤 3초 후에 이전 화면으로 돌아갑니다.',
+    '화면 우측 하단에는 카메라 촬영 버튼이 있습니다.\n이 버튼은 매대를 촬영하는 버튼으로, 매대를 촬영하면 어느 방향에 어떤 매대가 있는지 알려줍니다.',
+    '매대를 촬영하면 촬영한 매대를 인식하여 어떤 매대인지 텍스트와 음성으로 알려준 뒤 3초 후에 이전 화면으로 돌아갑니다.',
     '화면 우측 상단에는 도움말 버튼이 있습니다. 어플의 사용법을 듣고싶으시면 우측 상단의 버튼을 눌러주세요.',
     '어플 사용법 설명이 다 끝났습니다.\n어플의 사용법을 다시 듣고싶으시다면 다시 우측 상단의 도움말 버튼을 눌러주세요.',
     '카메라 화면으로 돌아갑니다.'
@@ -161,42 +170,29 @@ export default function App() {
     clearInterval(captureTimer);
   };
  */ 
-  // 서버에서 실시간 거리 정보를 받아 상태 업데이트
-  // 실시간 거리 정보를 받아 상태 업데이트
-  useEffect(() => {
-    wsClient.onmessage = (message) => {
-      const distanceData = JSON.parse(message.data);
-      setDistanceResult(`깊이: ${distanceData.depth}m`);
-    };
-
-    wsClient.onclose = (e) => {
-      console.log('웹소켓 연결 해제', e);
-    };
-
-    wsClient.onerror = (err) => {
-      console.log('웹소켓 에러 발생', err);
-    };
-
-    return () => {
-      wsClient.close();
-    };
-  }, [wsClient]);
-
-  // 거리 정보 갱신 시 서버로 전송
-  useEffect(() => {
-    sendDistance(distanceResult);
-  }, [distanceResult]);
-
-  // 거리 정보 서버로 전송
-  const sendDistance = async (depth) => {
-    if (wsClient.readyState === WebSocket.OPEN) {
-      wsClient.send(JSON.stringify({ depth }));
-    }
-  };
-
   //자동 촬영 후 서버 전송 결과 음성 출력
   const captureAndProcessImage = async () => {
-    wsClient.send(JSON.stringify({ depth }));
+    try {
+      const response = await fetch(`${SERVER_ADDRESS}/captureAndProcess`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        body: JSON.stringify({}),
+      });
+
+      if (response.status === 200) {
+        const data = await response.json();
+        const { distanceResultText, foodResultText } = data;
+
+        await Speech.speak(distanceResultText);
+        await Speech.speak(foodResultText);
+      } else {
+        console.error('이미지 처리 오류:', response.statusText);
+      }
+    } catch (error) {
+      console.error('이미지 처리 오류:', error);
+    }
   };
 
   //팝업창 열기
@@ -241,8 +237,8 @@ export default function App() {
     openServerResponsePopup();
   }, [serverResponse]);
 
-  //카메라 버튼으로 촬영한 이미지를 서버로 전송
-  const uploadImageToServer = async () => {
+  //식품 카메라 버튼으로 촬영한 이미지를 서버로 전송
+  const foodUploadImageToServer = async () => {
     if (!cameraPermission || isButtonsDisabled) {
       console.log('카메라 액세스 권한이 필요하거나 버튼이 비활성화되었습니다.');
       return;
@@ -259,7 +255,7 @@ export default function App() {
           name: 'photo.jpg',
         });
 
-        const response = await fetch(`${SERVER_ADDRESS}/saveCameraImage`, {
+        const response = await fetch(`${SERVER_ADDRESS}/foodCameraImage`, {
           method: 'POST',
           body: formData,
           headers: {
@@ -282,10 +278,48 @@ export default function App() {
       }
     }
   };
-  // 거리 정보 갱신 시 서버로 전송
-  useEffect(() => {
-    sendDistance(distanceResult);
-  }, [distanceResult]);
+
+  //매대 카메라 버튼으로 촬영한 이미지를 서버로 전송
+  const shelfUploadImageToServer = async () => {
+    if (!cameraPermission || isButtonsDisabled) {
+      console.log('카메라 액세스 권한이 필요하거나 버튼이 비활성화되었습니다.');
+      return;
+    }
+
+    if (cameraRef.current) {
+      const photo = await cameraRef.current.takePictureAsync();
+
+      try {
+        const formData = new FormData();
+        formData.append('image', {
+          uri: photo.uri,
+          type: 'image/jpeg',
+          name: 'photo.jpg',
+        });
+
+        const response = await fetch(`${SERVER_ADDRESS}/shelfCameraImage`, {
+          method: 'POST',
+          body: formData,
+          headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+        if (response.status === 200) {
+          const data = await response.text();
+          await Speech.stop();
+          await Speech.speak(data.testResultText);
+          setServerResponse(data);
+        } else {
+          console.error('서버 오류:', response.statusText);
+          setServerResponse('서버로 이미지를 업로드하지 못했습니다.');
+        }
+      } catch (error) {
+        console.error('이미지 업로드 오류:', error);
+        setServerResponse('식품을 인식할 수 없습니다.\n다시 촬영해 주세요.');
+      }
+    }
+  };
 
   //어플 화면
   return (
@@ -313,18 +347,23 @@ export default function App() {
             )}
 
             <Camera style={styles.camera} ref={cameraRef} />
-            
-            {/* 실시간 거리 정보 표기 */}
-            <View style={styles.distanceContainer}>
-              <Text style={styles.distanceText}>{distanceResult}</Text>
-            </View>
-            {/* 카메라 버튼 */}
+
+            {/* 식품 인식 카메라 버튼 */}
             <TouchableOpacity
-              style={[styles.circularButton]}
-              onPress={uploadImageToServer}
+              style={[styles.foodCameraButton]}
+              onPress={foodUploadImageToServer}
               disabled={isButtonsDisabled}
             >
-              <MaterialIcons name="photo-camera" size={70} color="white" />
+              <MaterialIcons name='photo-camera' size={70} color='white' />
+            </TouchableOpacity>
+
+            {/* 매대 인식 카메라 버튼 */}
+            <TouchableOpacity
+              style={[styles.shelfCameraButton]}
+              onPress={shelfUploadImageToServer}
+              disabled={isButtonsDisabled}
+            >
+              <MaterialIcons name='photo-camera' size={70} color='white' />
             </TouchableOpacity>
 
             {/* 팝업창 */}
@@ -363,17 +402,29 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     zIndex: 2,
   },
-  //카메라 버튼
-  circularButton: {
+  //식품 인식 카메라 버튼
+  foodCameraButton: {
     position: 'absolute',
-    bottom: 30,
-    alignSelf: 'center',
-    paddingVertical: 20,
-    paddingHorizontal: 130,
-    backgroundColor: 'blue',
-    padding: 45,
+    bottom: 5,
+    left: 5,
+    alignSelf: 'left',
+    paddingVertical: 120,
+    paddingHorizontal: 65,
+    backgroundColor: 'red',
     borderRadius: 30,
-    zIndex: 1,
+    zIndex: 2,
+  },
+  //매대 인식 카메라 버튼
+  shelfCameraButton: {
+    position: 'absolute',
+    bottom: 5,
+    right: 5,
+    alignSelf: 'right',
+    paddingVertical: 120,
+    paddingHorizontal: 65,
+    backgroundColor: 'blue',
+    borderRadius: 30,
+    zIndex: 2,
   },
   //가이드 메시지 출력 시 배경
   overlay: {
@@ -393,22 +444,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     paddingHorizontal: 20,
-  },
-  distanceContainer: {
-    position: "absolute",
-    bottom: 0,  // 중앙으로 위치 조정
-    left: 0,    // 중앙으로 위치 조정
-    right: 0,   // 컨테이너의 가로 중앙
-    top: 0,     // 컨테이너의 세로 중앙
-    backgroundColor: "rgba(0, 0, 0, 0)",
-    padding: 0,
-    borderRadius: 5,
-    alignItems: "center",  // 수평 중앙 정렬
-    justifyContent: "center",  // 수직 중앙 정렬
-  },
-  distanceText: {
-    color: "white",
-    fontSize: 25,
   },
   // 서버 응답 팝업창
   serverResponsePopup: {
